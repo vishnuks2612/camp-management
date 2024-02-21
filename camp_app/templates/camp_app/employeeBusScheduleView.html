@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Schedule View</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    #sidebar {
+      width: 250px;
+      height: 100%;
+      position: fixed;
+      background-color: #333;
+      padding-top: 20px;
+      color: #fff;
+    }
+
+    #content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+    #sidebar a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: #fff;
+      border-bottom: 1px solid #555;
+      transition: background 0.3s;
+    }
+
+    #sidebar a:hover {
+      background-color: #555;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    body {
+      background: url('') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      width: 500px;
+      margin: 100px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #999;
+      padding: 20px;
+    }
+
+    .card-header {
+      background: #007bff;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="sidebar">
+    <a href="{% url 'EmployeeHome' %}">Home</a>
+    <a href="{% url 'employeeProfileView' %}">Profile</a>
+    <a href="{% url 'employeeLeaveRequest' %}">Leave Request</a>
+    <a href="{% url 'employeeLeaveStatus' %}" >Leave Status</a>
+   
+    <a href="{% url 'employeeComplaintPortal' %}" >Complaint</a>
+    <a href="{% url 'employeeViewBusSchedule' %}">Bus</a>
+    <a href="{% url 'employeemessview_schedule' %}">Mess</a>
+    <a href="passwordReset.html">Password Reset</a>
+    <a href="login.html">Logout</a>
+</div>
+
+  <div class="card-container">
+    <h2>Bus Schedule</h2>
+    {% for bus_schedule in bus %}
+    <div class="card">
+      <div class="card-header">
+        Bus Number: {{ bus_schedule.bus_number }}
+      </div>
+      <p class="camp">Camp: {{ bus_schedule.camp }}</p>
+      <p class="bus">Bus: {{ bus_schedule.bus_name }}</p>
+      <p class="dest">Destination: {{ bus_schedule.destination }}</p>
+      <p class="time">Time: {{ bus_schedule.departure_time }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+
+</html>

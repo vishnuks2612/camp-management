@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Complaint by Employee</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    #sidebar {
+      width: 250px;
+      height: 100%;
+      position: fixed;
+      background-color: #333;
+      padding-top: 20px;
+      color: #fff;
+    }
+
+    #content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+
+    #sidebar a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: #fff;
+      border-bottom: 1px solid #555;
+      transition: background 0.3s;
+    }
+
+    #sidebar a:hover {
+      background-color: #555;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    .form-container h4 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group-icon {
+      position: relative;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus {
+      border-color: #007bff;
+    }
+
+    .input-group .input-icon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 10px;
+    }
+
+    .complaint-box {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .complaint-box h4 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .complaint-box textarea {
+      width: 100%;
+      padding: 12px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+
+    .complaint-box textarea:focus {
+      border-color: #007bff;
+    }
+
+    .row.center {
+      text-align: center;
+    }
+
+    .col-third {
+      width: 33.33%;
+    }
+
+    .row.center button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .row.center button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="sidebar">
+    <a href="{% url 'EmployeeHome' %}">Home</a>
+    <a href="{% url 'employeeProfileView' %}">Profile</a>
+    <a href="{% url 'employeeLeaveRequest' %}">Leave Request</a>
+    <a href="{% url 'employeeLeaveStatus' %}" >Leave Status</a>
+   
+    <a href="{% url 'employeeComplaintPortal' %}" >Complaint</a>
+    <a href="{% url 'employeeViewBusSchedule' %}">Bus</a>
+    <a href="{% url 'employeemessview_schedule' %}">Mess</a>
+    <a href="passwordReset.html">Password Reset</a>
+    <a href="login.html">Logout</a>
+</div>
+
+  <div id="content">
+    <div class="form-container">
+      <form method="post" action="{% url 'employeeComplaintPortal' %}">
+{% csrf_token %}
+        <div class="complaint-box">
+          <h4>Complaint</h4>
+          <div class="input-group">
+            <label for="complainant_name">Complainant's Name:</label>
+            <input type="text" id="complainant_name" name="name" placeholder="Enter complainant's name" required>
+          </div>
+          <div class="input-group">
+            <label for="complaint_subject">Complaint Subject:</label>
+            <textarea id="complaint_subject" name="reason" placeholder="Enter complaint subject" required></textarea>
+          </div>
+          <div class="input-group">
+            <label for="complaint_person">Complaint Person:</label>
+            <textarea id="complaint_person" name="complaint_person" placeholder="Enter complaint person" required></textarea>
+          </div>
+          <div class="input-group">
+            <label for="submission_date">Date of Submission:</label>
+            <input type="date" id="submission_date" name="date" required>
+          </div>
+        </div>
+
+        <div class="row center">
+          <div class="input-group d-flex justify-content-center">
+            <div class="col-third">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+{% extends "./sidebarHR.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+    .centered-table-container {
+        display: flex;
+        justify-content: center; /* Keeps the table centered */
+        align-items: center;
+        height: 100vh; /* Adjust the height as needed */
+        margin-left: 50px; /* Adjust this value to push the table to the right */
+        padding-left: 250px; /* Consider the sidebar width */
+    }
+
+    table {
+        width: auto; /* Adjust based on content and preference */
+        border-collapse: collapse;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #dddddd;
+    }
+
+    th {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .approve, .reject {
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .approve {
+        background-color: #4CAF50;
+    }
+
+    .reject {
+        background-color: #f44336;
+    }
+</style>
+
+<div class="centered-table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Leave Type</th>
+                <th>Reason</th>
+                <th>No. of Days Requested</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>No. of Days Remaining</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in a %}
+            <tr>
+                <td>{{i.employeeid.name}}</td>
+                <td>{{i.leavetypeid.leavetypename}}</td>
+                <td>{{i.reason}}</td>
+                <td>{{i.numberofdays}}</td>
+                <td>{{i.fromdate}}</td>
+                <td>{{i.todate}}</td>
+                <td>{{i.leavetypeid.totalnoofdays}}</td>
+                <td>
+                      <a href="{% url 'approve_leave_request' i.requestid %}" class="approve">Approve</a>
+            <a href="{% url 'reject_leave_request' i.requestid %}" class="reject">Reject</a>
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

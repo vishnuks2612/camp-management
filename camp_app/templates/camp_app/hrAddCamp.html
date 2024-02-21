@@ -1,0 +1,118 @@
+{% extends "./sidebarHR.html" %}
+
+{% block body %}
+<h1>ADD CAMP</h1>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    label {
+        margin-top: 10px;
+        display: block;
+        color: #666;
+    }
+    input[type=text],
+    input[type=number],
+    input[type=date],
+    input[type=email],
+    input[type=password],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 20px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+</style>
+<body>
+    <div id="content">
+
+        {% if error %}
+            <script>
+                alert("{{ error }}");
+            </script>
+            {% endif %}
+            
+            {% if success %}
+            <script>
+                alert("Bus successfully added.");
+            </script>
+            {% endif %}
+
+        
+        <form method='POST'>
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="">Camp Name: </label>
+                <input type="text" class="form-control" name = "camp" placeholder="Enter camp name">
+            </div>
+            <div class="form-group">
+                <label for="">Contact No: </label>
+                <input type="text" class="form-control" name= "contact" placeholder="Enter phone number">
+            </div>
+            {% comment %} <div class="form-group">
+                <label for="">Building Id:</label>
+                <input type="text" class="form-control" placeholder="Enter building id">
+            </div> {% endcomment %}
+            <div class="form-group">
+                <label for="">Location</label>
+                <input type="text" class="form-control" name = "currentLocation" placeholder="Enter loaction">
+            </div>
+            <div class="form-group">
+                <label for="">Address: </label>
+                <input type="text" class="form-control" name = "currentAddress" placeholder="Enter address">
+            </div>
+            <div class="form-group">
+                <label for="">Number Of Rooms: </label>
+                <input type="text" class="form-control" name = "roomnumber" placeholder="Enter number of floors">
+            </div>
+            <div class="form-group">
+                <label for="">Number Of Floors: </label>
+                <input type="text" class="form-control" name = "floornumber" placeholder="Enter number of floors">
+            </div>
+            <div class="form-group">
+                <label for="">number Of Beds: </label>
+                <input type="text" class="form-control" name = "bednumber" placeholder="Enter number of beds">
+            </div>
+            <button type="submit" class="btn btn-primary-">Submit</button>
+        </form>
+    </div>
+
+
+</body>
+
+{%endblock%}
+
+

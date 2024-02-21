@@ -1,0 +1,38 @@
+{%extends './campBossBase.html'%}
+{%block body%}
+
+{% if messages %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            {% for message in messages %}
+                alert("{{ message }}");
+            {% endfor %}
+        });
+    </script>
+{% endif %}
+
+    <div id="content" class="container">
+        <div class="card">
+            <h2>Create Items</h2>
+            <form action="#" method="post" id="itemForm">
+                {% csrf_token %}
+                <div class="item">
+                    <label for="itemName">Category:</label><br>
+                    
+                    <select name="category" id = 'category' required>
+                        <option value="">Select </option>
+                        {%for category in categories%}
+                        <option value="{{category.cat_id}}">{{category.ItemName}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="itemNumber">Item Number:</label><br>
+                    <input type="number" id="itemNumber" name="itemNumber[]" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+{%endblock%}
+   

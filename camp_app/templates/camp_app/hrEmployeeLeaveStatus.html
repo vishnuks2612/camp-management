@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Leave Status</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #555;
+            transition: background 0.3s;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <a href="hrHome.html">Home</a>
+        <a href="hrAddCamp.html">Add Camp</a>
+        <a href="hrAddCampBoss.html">Add Camp Boss</a>
+        <a href="hrEmployeeView.html">View Employees</a>
+        <a href="hrEmployeeLeaveRequestView.html">View Leave Request</a>
+        <a href="hrEmployeeLeaveStatus.html">Employee Leave Status</a>
+        <a href="hrlogin.html">Logout</a>
+    </div>
+
+    <div id="content">
+        <h1>Employee Leave Status</h1>
+        <body>
+            <table>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Leave Type</th>
+                    <th>Total Days</th>
+                    <th>Days Taken</th>
+                    <th>Remaining Days</th>
+                </tr>
+                {% for leave_status in leave_statuses %}
+                <tr>
+                    <td>{{ leave_status.employeeid.employeeid }}</td>
+                    <td>{{ leave_status.employeeid.name }}</td>
+                    <td>{{ leave_status.leavetypeid.name }}</td>
+                    <td>{{ leave_status.numberofdays }}</td>
+                    <td>{{ leave_status.numberofdays.days_taken }}</td>
+                    <td>{{ leave_status.remainingdays }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </body>
+
+    </div>
+
+</body>
+
+</html>

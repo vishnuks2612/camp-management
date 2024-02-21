@@ -1,0 +1,109 @@
+{%extends './campBossBase.html'%}
+{%load static%}
+
+
+{%block body%}
+
+    <div id="content">
+        <div class="card">
+            <h2>Add Bus</h2>
+          
+
+
+
+            {% if error %}
+            <script>
+                alert("{{ error }}");
+            </script>
+            {% endif %}
+            
+            {% if success %}
+            <script>
+                alert("Bus successfully added.");
+            </script>
+            {% endif %}
+            
+            <div class="form-container">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table>
+                        <!-- Adapted to TransportationModel fields -->
+                        <tr>
+                            <td class="labels">Bus Name:</td>
+                            <td><input type="text" name="busname" required></td>
+                        </tr>
+                        <tr>
+                            <td class="labels">Destination:</td>
+                            <td><input type="text" name="destination" required></td>
+                        </tr>
+                        <tr>
+                            <td class="labels">Time:</td>
+                            <td><input type="time" name="time" required></td>
+                        </tr>
+                        <tr>
+                            <td class="labels">Camp:</td>
+                            <td>
+                                <select name="campid" required>
+                                    <!-- Assuming you pass a 'camps' context variable from your view that contains all camp objects -->
+                                    {% for camp in camps %}
+                                    <option value="{{ camp.id }}">{{ camp.name }}</option> <!-- Adjust 'name' if your CampModel uses a different field to display its name -->
+                                    {% endfor %}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Submit"></td>
+                        </tr>
+                    </table>
+                </form>
+                
+                <style>
+                    /* Apply full height to body and html */
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: #f4f4f4; /* Optional: Background color */
+                    }
+            
+                    form {
+                        border: 1px solid #ccc; /* Optional: Form border */
+                        padding: 20px;
+                        background-color: #fff; /* Optional: Form background color */
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Box shadow for better visibility */
+                    }
+            
+                    table {
+                        width: 100%;
+                    }
+            
+                    .labels, td {
+                        padding: 8px; /* Spacing inside table cells */
+                        text-align: left; /* Align text to the left in table cells */
+                    }
+            
+                    input[type="submit"] {
+                        width: 100%; /* Make submit button full width */
+                        padding: 10px; /* Add padding for better appearance */
+                        background-color: #007bff; /* Background color */
+                        color: #ffffff; /* Text color */
+                        border: none; /* Remove border */
+                        cursor: pointer; /* Change cursor to pointer on hover */
+                    }
+            
+                    input[type="submit"]:hover {
+                        background-color: #0056b3; /* Darker shade on hover */
+                    }
+                </style>
+            </div>
+            
+            
+            
+
+        </div>
+    </div>
+
+    {%endblock%}

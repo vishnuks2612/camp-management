@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Leave Request</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+            align-items: center;
+
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #555;
+            transition: background 0.3s;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+
+        .approve {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+        }
+
+        .reject {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <a href="hrHome.html">Home</a>
+        <a href="hrAddCamp.html">Add Camp</a>
+        <a href="campboss_Addroom.html">Add Rooms</a>
+        <a href="addFlats.html">Add Flats</a>
+        <a href="addfloor.html">Add Floors</a>
+        <a href="campboss_createbed.html">Add Bed</a>
+        <a href="hrAddCampBoss.html">Add Camp Boss</a>
+        <a href="hrEmployeeView.html">View Employees</a>
+        <a href="hrEmployeeLeaveRequestView.html">View Leave Request</a>
+       
+        <a href="hrlogin.html">Logout</a>
+    </div>
+
+    <div id="content">
+        <h1>Employee Leave Applications</h1>
+        <table>
+            <thead>
+                <tr>
+                   
+                    <th>Name</th>
+                    <th>Leave Type</th>
+                    <th>Reason</th>
+                    <th>No. of Days Requested</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>No. of Days Remaining</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                   
+                    <td>John Doe</td>
+                    <td>Medical</td>
+                    <td>Fever</td>
+                    <td>5</td>
+                    <td>2024-01-01</td>
+                    <td>2025-01-06</td>
+                    <td>10</td> <!-- Assuming 10 days are remaining -->
+                    <td>
+                        <button class="approve">Approve</button>
+                        <button class="reject">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

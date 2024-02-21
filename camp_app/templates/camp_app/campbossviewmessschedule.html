@@ -1,0 +1,95 @@
+{% extends './campBossBase.html' %}
+{% load static %}
+{%block body%}
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center; /* Vertically center content */
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100vh; /* 100% of viewport height */
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #555;
+            transition: background 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        #content {
+            margin: 0 auto; /* Center content horizontally */
+            max-width: 800px; /* Set a maximum width for the content */
+            padding: 20px;
+            text-align: center; /* Center content horizontally */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #323131;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content">
+        <h2>View Schedule</h2>
+
+        {% for schedule in mess_schedule %}
+            <label for="breakfast">Breakfast: {{ schedule.breakfast }}</label>
+            <label for="lunch">Lunch: {{ schedule.lunch }}</label>
+            <label for="tea_time">Tea Time: {{ schedule.tea_time }}</label>
+            <label for="dinner">Dinner: {{ schedule.dinner }}</label>
+        {% endfor %}
+
+        
+    </div>
+
+</body>
+</html>
+{% endblock %}
+

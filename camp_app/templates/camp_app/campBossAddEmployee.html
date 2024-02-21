@@ -1,0 +1,210 @@
+{% extends './campBossBase.html' %}
+{% load static %}
+{% block body %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    label {
+        margin-top: 10px;
+        display: block;
+        color: #666;
+    }
+    input[type=text],
+    input[type=number],
+    input[type=date],
+    input[type=email],
+    input[type=password],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 20px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+</style>
+<div id="content">
+    <div class="container">
+        <h4 class="text-center">Employee Registration</h4>
+        <form method="post" >
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br><br>
+    
+            <label for="phone">Phone:</label>
+            <input type="number" name="phone" id="phone"><br><br>
+    
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" required><br><br>
+    
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="address" required><br><br>
+    
+            <label for="nationality">Nationality:</label>
+            <input type="text" name="nationality" id="nationality" required><br><br>
+    
+            <label for="jobcategory">Job Category:</label>
+            <input type="text" name="jobcategory" id="jobcategory" required><br><br>
+    
+            <label for="passport">Passport:</label>
+            <input type="text" name="passport" id="passport" required><br><br>
+    
+            <label for="passportexpiry">Passport Expiry Date:</label>
+            <input type="date" name="passportexpiry" id="passportexpiry" required><br><br>
+    
+            <label for="department">Department:</label>
+            <input type="text" name="department" id="department" required><br><br>
+    
+            <label for="bloodgroup">Blood Group:</label>
+            <input type="text" name="bloodgroup" id="bloodgroup" required><br><br>
+    
+            <label for="diagnosisdiseases">Diagnosed Diseases:</label>
+            <input type="text" name="diagnosisdiseases" id="diagnosisdiseases"><br><br>
+    
+            <label for="emergencymedicine">Emergency Medicine:</label>
+            <input type="text" name="emergencymedicine" id="emergencymedicine"><br><br>
+    
+            <label for="emergencyphone">Emergency Phone:</label>
+            <input type="number" name="emergencyphone" id="emergencyphone"><br><br>
+    
+            <label for="domesticaddress">Domestic Address:</label>
+            <input type="text" name="domesticaddress" id="domesticaddress" required><br><br>
+    
+            <label for="education">Education:</label>
+            <input type="text" name="education" id="education" required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required><br><br>
+    
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required><br><br>
+    
+        
+            <select name="camp" id="id_campid"> <!-- Make sure the id here matches your JavaScript -->
+                <option value="">Select a Camp...</option>
+                {% for camp in camps %}
+                <option value="{{ camp.campid }}">{{ camp.campname }}</option>
+                {% endfor %}
+            </select>
+
+
+            
+            <select name="floorNo" id="floorNo"> <!-- And here as well -->
+                <option value="">Select a Floor...</option>
+                {% for floor in floors %}
+                <option value="{{ floor.floorid }}">{{ floor.floorno }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+<!-- Example for ForeignKey Field: Bed -->
+<label for="bedNo">Bed No:</label>
+<select name="bedNo" id="bedNo">
+    <option value="">Select Bed No</option>
+    {% for bed in beds %}
+        <option value="{{ bed.bedid }}">{{ bed.number }}</option>
+    {% endfor %}
+</select><br><br>
+
+<label for="usertypeid">usertype</label>
+<select name="usertype" id="usertype">
+    <option value="">Select usertype</option>
+    {% for usertype in usertype %}
+        <option value="{{ usertype.usertypeid }}">{{ usertype.usertypename }}</option>
+    {% endfor %}
+</select><br><br>
+
+<!-- Example for ForeignKey Field: Flat -->
+<label for="flatNo">Flat No:</label>
+<select name="flatNo" id="flatNo">
+    <option value="">Select Flat No</option>
+    {% for flat in flats %}
+        <option value="{{ flat.flatid }}">{{ flat.flatnumber }}</option>
+    {% endfor %}
+</select><br><br>
+
+<label for="RoomType">Room Type:</label>
+<select name="roomTypeNo" id="roomTypeNo">
+    <option value="">Select Room Type</option>
+    {% for room in roomtype %}
+        <option value="{{ room.roomtypeid }}">{{ room.roomtypename }}</option>
+    {% endfor %}
+</select><br><br>
+
+<!-- Example for ForeignKey Field: Room -->
+<label for="RoomNo">Room No:</label>
+<select name="RoomNo" id="RoomNo">
+    <option value="">Select Room No</option>
+    {% for room in rooms %}
+        <option value="{{ room.roomid }}">{{ room.roomnumber }}</option>
+    {% endfor %}
+</select><br><br>
+
+
+
+<!-- Example for ForeignKey Field: Transportation -->
+<label for="busNo">Bus No:</label>
+<select name="busNo" id="busNo">
+    <option value="">Select Bus No</option>
+    {% for bus in buses %}
+        <option value="{{ bus.busid }}">{{ bus.busname }}</option>
+    {% endfor %}
+</select><br><br>
+<label for="item">Items :</label>
+<select name="itemNo" id="itemNo">
+    <option value="">Select Item</option>
+    {% for item in categories %}
+        <option value="{{ item.itemid}}">{{ item.itemname }}</option>
+    {% endfor %}
+</select><br><br>
+<!-- Table for common items assigned to all employees -->
+
+                </table>
+
+    
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+
+    
+    
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

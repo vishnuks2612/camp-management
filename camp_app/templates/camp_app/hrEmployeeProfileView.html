@@ -1,0 +1,76 @@
+{% extends "./sidebarHR.html" %}
+
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flat</title>
+    
+    
+</head>
+<body>
+    
+
+<div id="content">
+    <h1>Employee Information</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>DOB</th>
+                <th>Address</th>
+                <th>Nationality</th>
+                <th>Job Category</th>
+                <th>Passport</th>
+                <th>Expiry Date Passport</th>
+                <th>Department</th>
+                <th>Blood Group</th>
+                <th>Diagnosis Diseases</th>
+                <th>Emergency Medicine</th>
+                <th>Emergency Contact Number</th>
+                <th>Domestic Address</th>
+                <th>Educational Qualification</th>
+                <th>Email</th>
+                <th>Bed ID</th>
+                <th>Item ID</th>
+                <th>Bus ID</th>
+                <th>User Type ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in profile %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.contact_no }}</td>
+                <td>{{ employee.dob }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{{ employee.nationality }}</td>
+                <td>{{ employee.job_category }}</td>
+                <td>{{ employee.passport }}</td>
+                <td>{{ employee.expiry_date_passport }}</td>
+                <td>{{ employee.department }}</td>
+                <td>{{ employee.blood_group }}</td>
+                <td>{{ employee.diagnosis_diseases }}</td>
+                <td>{{ employee.emergency_medicine }}</td>
+                <td>{{ employee.emergency_contact_number }}</td>
+                <td>{{ employee.domestic_address }}</td>
+                <td>{{ employee.educational_qualification }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.bed_id }}</td>
+                <td>{{ employee.item_id }}</td>
+                <td>{{ employee.bus_id }}</td>
+                <td>{{ employee.user_type_id }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+{% endblock %}

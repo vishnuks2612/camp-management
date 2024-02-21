@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Mess Schedule</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center; /* Vertically center content */
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 150vh; /* 100% of viewport height */
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #555;
+            transition: background 0.3s;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        #content {
+            padding: 20px;
+            max-width: 600px;
+            margin-left: 250px;
+        }
+
+        .schedule-box {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+
+        h2 {
+            color: #323131;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="messCaptainHome.html">Home</a>
+        <a href="messCaptainAddMessSchedule.html">Add Schedule</a>
+        <a href="messCaptainViewMessSchedule.html">View Schedule</a>
+        <a href="messCaptainViewProfile.html">Profile</a>
+        <a href="messCaptainPasswordReset.html">Change Password</a>
+        <a href="messCaptainLeaveRequest.html">Leave Request</a>
+        <a href="messCaptainViewLeaveStatus.html">Leave status</a>
+        <a href="login.html">Logout</a>
+        
+
+    </div>
+
+<div id="content" class="schedule-box">
+    <h2>Add Mess Schedule</h2>
+
+    <form method="post" action="{% url 'add_mess_schedule' %}">
+        
+
+        <label for="breakfast">Breakfast:</label>
+        <input type="text" id="breakfast" name="breakfast" placeholder="Food for Breakfast" required>
+        <input type="time" id="breakfast_time" name="breakfast_time" required>
+        
+
+        <label for="lunch">Lunch:</label>
+        <input type="text" id="lunch" name="lunch" placeholder="Food for Lunch" required>
+        <input type="time" id="lunch_time" name="lunch_time" required>
+        
+
+        <label for="tea_time">Tea:</label>
+        <input type="text" id="tea_time" name="tea" placeholder="Food for Tea Time" required>
+        <input type="time" id="tea_time_time" name="tea_time_time" required>
+    
+
+        <label for="dinner">Dinner:</label>
+        <input type="text" id="dinner" name="dinner" placeholder="Food for Dinner" required>
+        <input type="time" id="dinner_time" name="dinner_time" required>
+        
+
+        <button type="submit">Add Schedule</button>
+    </form>
+</section>
+
+</body>
+</html>

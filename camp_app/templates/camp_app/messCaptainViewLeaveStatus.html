@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Leave Status</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+            align-items: center;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #555;
+            transition: background 0.3s;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 5px 10px;
+            margin: 2px;
+        }
+
+        .approve {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+        }
+
+        .reject {
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <a href="messCaptainHome.html">Home</a>
+        <a href="messCaptainAddMessSchedule.html">Add Schedule</a>
+        <a href="messCaptainViewMessSchedule.html">View Schedule</a>
+        <a href="messCaptainViewProfile.html">Profile</a>
+        <a href="messCaptainPasswordReset.html">Change Password</a>
+        <a href="messCaptainLeaveRequest.html">Leave Request</a>
+        <a href="messCaptainViewLeaveStatus.html">Leave status</a>
+        <a href="login.html">Logout</a>
+        
+
+    </div>
+    
+    <div id="content">
+        <h1>Leave Status</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Leave Type</th>
+                    <th>Reason</th>
+                    <th>Number of Days</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for leave_request in leave %}
+                <tr>
+                    <td>{{ leave_request.employeeid.name }}</td>
+                    <td>{{ leave_request.leavetypeid.type }}</td>
+                    <td>{{ leave_request.reason }}</td>
+                    <td>{{ leave_request.numberofdays }}</td>
+                    <td>{{ leave_request.fromdate }}</td>
+                    <td>{{ leave_request.todate }}</td>
+                    <td>{{ leave_request.approvalstatus }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

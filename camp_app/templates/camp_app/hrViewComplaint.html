@@ -1,0 +1,68 @@
+{% extends './sideBarHR.html' %}
+
+{% block body %}
+<style>
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100%;
+    }
+    .center-content table {
+      margin: 20px auto; /* Centers the table horizontally */
+      width: 60%; /* Reducing width for a more centered look */
+      border-collapse: collapse;
+    }
+    .center-content h1 {
+      margin-bottom: 0.5em; /* Reduce space above the title if needed */
+    }
+    /* Additional styling for the table */
+    .center-content table, th, td {
+      border: 1px solid black;
+      text-align: left;
+    }
+    th, td {
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    @media (max-width: 768px) {
+      .center-content table {
+        width: 90%; /* Adjust for smaller screens */
+      }
+    }
+  </style>
+
+<div class="center-content">
+    <h1>Complaints List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Complaint Person</th>
+               
+                <th>Complaint Against</th>
+                <th>Reason</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for complaint in complaints %}
+            <tr>
+                <td>{{ complaint.employeeid.name }}</td>
+               
+                <td>{{ complaint.complaint_against }}</td>
+                <td>{{ complaint.reason }}</td>
+                <td>{{ complaint.date }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No complaints found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

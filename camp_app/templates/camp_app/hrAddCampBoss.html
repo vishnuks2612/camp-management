@@ -1,0 +1,185 @@
+{% extends "./sidebarHR.html" %}
+
+{% block body %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        line-height: 1.6;
+    }
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    label {
+        margin-top: 10px;
+        display: block;
+        color: #666;
+    }
+    input[type=text],
+    input[type=number],
+    input[type=date],
+    input[type=email],
+    input[type=password],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 20px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+</style>
+
+<body>
+    <div id="content">
+        <div class="container">
+    <h1>Add Camp Boss</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone"><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" cols="50"></textarea><br>
+
+        <label for="nationality">Nationality:</label>
+        <input type="text" id="nationality" name="nationality"><br>
+
+        <label for="jobcategory">Job Category:</label>
+        <input type="text" id="jobcategory" name="jobcategory"><br>
+
+        <label for="passport">Passport:</label>
+        <input type="text" id="passport" name="passport"><br>
+
+        <label for="passportexpiry">Passport Expiry:</label>
+        <input type="date" id="passportexpiry" name="passportexpiry" required><br>
+
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department"><br>
+
+        <label for="bloodgroup">Blood Group:</label>
+        <input type="text" id="bloodgroup" name="bloodgroup"><br>
+
+        <label for="diagnosisdiseases">Diagnosis Diseases:</label>
+        <input type="text" id="diagnosisdiseases" name="diagnosisdiseases"><br>
+
+        <label for="emergencymedicine">Emergency Medicine:</label>
+        <input type="text" id="emergencymedicine" name="emergencymedicine"><br>
+
+        <label for="emergencyphone">Emergency Phone:</label>
+        <input type="tel" id="emergencyphone" name="emergencyphone"><br>
+
+        <label for="domesticaddress">Domestic Address:</label>
+        <textarea id="domesticaddress" name="domesticaddress" rows="4" cols="50"></textarea><br>
+
+        <label for="education">Education:</label>
+        <input type="text" id="education" name="education"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="flatid">Flat:</label>
+        <select id="flatid" name="flatid">
+            <option value="">Select Flat</option>
+            {% for flat in flats %}
+                <option value="{{ flat.pk }}">{{ flat.flat_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="floorid">Floor:</label>
+        <select id="floorid" name="floorid">
+            <option value="">Select Floor</option>
+            {% for floor in floors %}
+                <option value="{{ floor.pk }}">{{ floor.floor_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" name="roomType">
+            <option value="">Select Room Type</option>
+            {% for roomtype in roomtypes %}
+                <option value="{{ roomtype.pk }}">{{ roomtype.room_type }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="roomid">Room:</label>
+        <select id="roomid" name="roomid">
+            <option value="">Select Room</option>
+            {% for room in rooms %}
+                <option value="{{ room.pk }}">{{ room.room_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="bedid">Bed:</label>
+        <select id="bedid" name="bedid">
+            <option value="">Select Bed</option>
+            {% for bed in beds %}
+                <option value="{{ bed.pk }}">{{ bed.bed_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="busid">Bus:</label>
+        <select id="busid" name="busid">
+            <option value="">Select Bus</option>
+            {% for bus in buses %}
+                <option value="{{ bus.pk }}">{{ bus.bus_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="itemid">Item:</label>
+        <select id="itemid" name="itemid">
+            <option value="">Select Item</option>
+            {% for item in items %}
+                <option value="{{ item.pk }}">{{ item.item_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <label for="itemid">Camp:</label>
+        <select id="itemid" name="itemid">
+            <option value="">Select Item</option>
+            {% for camp in camps %}
+                <option value="{{ item.pk }}">{{ i.item_name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Submit</button>
+    </form>
+        </div></div>
+</body>
+</html>
+{% endblock %}

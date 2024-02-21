@@ -1,0 +1,31 @@
+{% extends './campBossBase.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <div class="card">
+        <h2>Add Item Category</h2>
+        <!-- Display messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        <form action="#" method="post" id="categoryForm">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="categoryName">Category Name:</label>
+                <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+            </div>
+            <div class="form-group">
+                <label for="number">Number:</label>
+                <input type="number" class="form-control" id="number" name="number" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

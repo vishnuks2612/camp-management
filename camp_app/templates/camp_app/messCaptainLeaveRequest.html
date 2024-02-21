@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Request</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        nav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  float: left;  
+}
+
+nav li a {
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+nav li a:hover {
+  background-color: #ddd;
+  color: black;
+}
+        body {
+            background-image: url("https://images.unsplash.com/photo-1508615070457-7baeba4003e1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+            color: #313232;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+        }
+        button {
+            margin-top: 10px;
+            width: 100%;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #sidebar {
+            width: 250px;
+            height: 100%;
+            position: fixed;
+            background-color: #333;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        #content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #fff;
+            border-bottom: 1px solid #555;
+            transition: background 0.3s;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            color: #323131;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <a href="messCaptainHome.html">Home</a>
+        <a href="messCaptainAddMessSchedule.html">Add Schedule</a>
+        <a href="messCaptainViewMessSchedule.html">View Schedule</a>
+        <a href="messCaptainViewProfile.html">Profile</a>
+        <a href="messCaptainPasswordReset.html">Change Password</a>
+        <a href="messCaptainLeaveRequest.html">Leave Request</a>
+        <a href="messCaptainViewLeaveStatus.html">Leave status</a>
+        <a href="login.html">Logout</a>
+        
+
+    </div>
+    
+    <div id="content">
+        <h1>Leave Request</h1>
+        <form>
+        
+            <div class="form-group">
+                <label for="employeeID">Employee Name</label>
+                <input type="text" class="form-control" id="employeeID" readonly>
+            </div>
+            <div class="form-group">
+                <label for="leaveType">Leave Type</label>
+                <select class="form-control" id="leaveType" disabled>
+                    <option>Casual</option>
+                    <option>Medical</option>
+                    <option>Annual</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="reason">Reason</label>
+                <input type="text" class="form-control" id="reason" readonly>
+            </div>
+            <div class="form-group">
+                <label for="numberOfDays">Number of Days</label>
+                <input type="number" class="form-control" id="numberOfDays" readonly>
+            </div>
+            <div class="form-group">
+                <label for="fromDate">From Date</label>
+                <input type="date" class="form-control" id="fromDate" readonly>
+            </div>
+            <div class="form-group">
+                <label for="toDate">To Date</label>
+                <input type="date" class="form-control" id="toDate" readonly>
+            </div>
+            <div class="form-group">
+                <label for="approvalStatus">Approval Status</label>
+                <input type="text" class="form-control" id="approvalStatus" readonly>
+            </div>
+            <button type="submit" class="btn btn-primary" disabled>Submit</button>
+        </form>
+    </div>
+</body>
+</html>
